@@ -63,9 +63,9 @@
 
       <div class="price-box">
         <div v-if="priceRecurring" class="recurring">
-          {{ priceRecurring | numeral("0.[0]") }} rsd/mes.
+          {{ priceRecurring | numeral("0 [0]") }} rsd/mes.
         </div>
-        <div class="price-normal">{{ price | numeral("0,0") }} rsd/mes.</div>
+        <div class="price-normal">{{ price | numeral("0 []") }} rsd/mes.</div>
       </div>
       <div
         class="promo-text-small"
@@ -88,7 +88,7 @@ export default {
   methods: {
     boldString(str, substr) {
       var strRegExp = new RegExp(substr, "g");
-      return str.replace(strRegExp, "<b>" + substr + "</b>");
+      return str.replace(strRegExp, "<strong>" + substr + "</strong>");
     },
   },
   computed: {
@@ -128,6 +128,7 @@ export default {
   font-style: italic;
   font-size: 22px;
   color: #742d6c;
+  position: relative;
 }
 ul {
   padding-left: 0;
@@ -280,6 +281,35 @@ button {
 
   &:hover {
     opacity: 0.8;
+  }
+}
+
+@media all and (max-width: 1200px) {
+  .wrapper {
+    .item {
+      display: block;
+      margin-right: 0;
+      margin-bottom: 30px;
+    }
+    .inner {
+      &.featured {
+        margin-top: 40px;
+      }
+    }
+  }
+}
+
+@media all and (max-width: 768px) {
+  .promo-box {
+    .promo-text {
+      margin-left: 10px;
+    }
+  }
+  .price-box {
+    display: block;
+  }
+  .recurring {
+    width: 100%;
   }
 }
 </style>

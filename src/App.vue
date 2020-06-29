@@ -110,4 +110,15 @@ p {
     max-width: 340px;
   }
 }
+
+@media all and (max-width: 1200px) {
+  .wrapper {
+    width: 50%;
+  }
+}
+@media all and (max-width: 768px) {
+  .wrapper {
+    width: 100%;
+  }
+}
 </style>
